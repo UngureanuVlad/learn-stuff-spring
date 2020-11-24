@@ -5,9 +5,6 @@ DROP TABLE IF EXISTS sbs_albums;
 DROP TABLE IF EXISTS sbs_genders;
 DROP TABLE IF EXISTS sbs_artists;
 
-DROP TABLE IF EXISTS sbs_users;
-DROP TABLE IF EXISTS sbs_groups;
-
 -- Lasteste change: added details column to "sbs_artists"
 CREATE TABLE sbs_artists(
 	id SERIAL UNIQUE NOT NULL,
@@ -42,24 +39,5 @@ CREATE TABLE sbs_artist_genders(
 	id_artist INTEGER REFERENCES sbs_artists(id) ON DELETE CASCADE,
 	id_gender INTEGER REFERENCES sbs_genders(id) ON DELETE CASCADE,
 	PRIMARY KEY(id)
-);
-
--- User tables for Spring Security
-CREATE TABLE IF NOT EXISTS sbs_groups (
-  id SERIAL UNIQUE NOT NULL,
-  group_name VARCHAR(100),
-  PRIMARY KEY(id)
-);
-
-CREATE TABLE IF NOT EXISTS sbs_users (
-  id SERIAL UNIQUE NOT NULL,
-  user_name VARCHAR(100),
-  user_email VARCHAR(100) UNIQUE,
-  user_password VARCHAR(70),
-  user_first_name VARCHAR(100),
-  user_last_name VARCHAR(100),
-  enabled BOOLEAN DEFAULT true,
-  id_group INTEGER REFERENCES sbs_groups(id),
-  PRIMARY KEY(id)
 );
 
