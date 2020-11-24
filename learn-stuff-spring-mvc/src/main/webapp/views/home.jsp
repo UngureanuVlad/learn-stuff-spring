@@ -8,7 +8,7 @@
 	<div class="content">
 		<div>
 			<div class="content-holder">
-				<div class="padding_container">Hello, Spring Breakout Session!</div>
+				<div class="padding_container">Welcome to Learn Stuff IO!</div>
 			</div>
 		</div>
 	</div>
