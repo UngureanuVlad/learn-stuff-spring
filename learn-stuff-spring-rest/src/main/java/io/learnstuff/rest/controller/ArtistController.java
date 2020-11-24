@@ -2,10 +2,13 @@ package io.learnstuff.rest.controller;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestHeader;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 import io.learnstuff.rest.builders.ArtefactBuilder;
 import io.learnstuff.rest.domain.Artist;
@@ -16,29 +19,27 @@ public class ArtistController {
 
   public final static Logger logger = LoggerFactory.getLogger(ArtistController.class);
 
-  @RequestMapping(value = "/artist/{id}", method = RequestMethod.GET)
+  @GetMapping(value = "/artist/{id}", produces = "application/json")
   protected Artist getArtist(@PathVariable Long id) throws Exception {
-    logger.info("Called get Artist (" + id + ") service!");
+    logger.info("Called getArtist(" + id + ") service!");
     return ArtefactBuilder.anArtistWithId();
   }
 
-  @RequestMapping(value = "/artist", method = RequestMethod.POST, consumes = "application/json",
-      produces = "application/json")
-  public ServiceResponse createArtist(Artist artist) {
-    logger.info("Called create Artist service!");
+  @PostMapping(value = "/artist", consumes = "application/json", produces = "application/json")
+  public ServiceResponse createArtist(@RequestBody Artist artist) {
+    logger.info("Called createArtist() service!");
     return new ServiceResponse();
   }
 
-  @RequestMapping(value = "/artist", method = RequestMethod.PUT, consumes = "application/json",
-      produces = "application/json")
-  public ServiceResponse updateArtist(Artist artist) {
-    logger.info("Called update Artist service!");
+  @PutMapping(value = "/artist", consumes = "application/json", produces = "application/json")
+  public ServiceResponse updateArtist(@RequestBody Artist artist) {
+    logger.info("Called createArtist() service!");
     return new ServiceResponse();
   }
 
-  @RequestMapping(value = "/artist/{id}", method = RequestMethod.DELETE)
+  @DeleteMapping(value = "/artist/{id}")
   public ServiceResponse deleteArtist(@RequestHeader("token") String token, @PathVariable Long id) {
-    logger.info("Called delete Artist (" + id + ") service with token: " + token + " !");
+    logger.info("Called deleteArtist(" + id + ") service with token: " + token + " !");
     return new ServiceResponse();
   }
 }

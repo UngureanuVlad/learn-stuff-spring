@@ -2,11 +2,11 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-	<groupId>io.learnstuff.spring.rest</groupId>
-	<artifactId>io.learnstuff.spring.rest</artifactId>
+	<groupId>io.learnstuff.spring.jpa</groupId>
+	<artifactId>io.learnstuff.spring.jpa</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>Learn Stuff Spring REST</name>
-	<description>Learn Stuff Spring REST</description>
+	<name>Learn Stuff Spring JPA</name>
+	<description>Learn Stuff Spring JPA</description>
 	<properties>
 		<java.version>1.8</java.version>
 		<maven-jar-plugin.version>3.1.1</maven-jar-plugin.version>
@@ -46,8 +46,23 @@
 		</dependency>
 
 		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-jdbc</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-data-jpa</artifactId>
+		</dependency>
+
+		<dependency>
 			<groupId>com.fasterxml.jackson.core</groupId>
 			<artifactId>jackson-databind</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.postgresql</groupId>
+			<artifactId>postgresql</artifactId>
 		</dependency>
 
 		<dependency>
@@ -59,7 +74,7 @@
 	</dependencies>
 
 	<build>
-		<finalName>learn-stuff-spring-rest</finalName>
+		<finalName>learn-stuff-spring-jpa</finalName>
 		<plugins>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
@@ -74,7 +89,7 @@
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 				<configuration>
-					<mainClass>io.learnstuff.rest.main.LearnStuffSpringREST</mainClass>
+					<mainClass>io.learnstuff.jpa.main.LearnStuffSpringJPA</mainClass>
 				</configuration>
 			</plugin>
 
