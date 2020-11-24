@@ -1,13 +1,11 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
-	<modelVersion>4.0.0</modelVersion>
-	<groupId>io.learnstuff.spring.mvc</groupId>
-	<artifactId>io.learnstuff.spring.mvc</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
-	<name>Learn Stuff Spring MVC</name>
-	<description>Learn Stuff Spring MVC</description>
-	<properties>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>io.learnstuff.spring.rest</groupId>
+  <artifactId>io.learnstuff.spring.rest</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  <name>Learn Stuff Spring REST</name>
+  <description>Learn Stuff Spring REST</description>
+<properties>
 		<java.version>1.8</java.version>
 		<maven-jar-plugin.version>3.1.1</maven-jar-plugin.version>
 	</properties>
@@ -128,7 +126,7 @@
 	</dependencies>
 
 	<build>
-		<finalName>learn-stuff-spring-mvc</finalName>
+		<finalName>learn-stuff-spring-rest</finalName>
 		<plugins>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
@@ -143,7 +141,7 @@
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 				<configuration>
-					<mainClass>io.learnstuff.mvc.main.LearnStuffSpringMVC</mainClass>
+					<mainClass>io.learnstuff.rest.main.LearnStuffSpringREST</mainClass>
 				</configuration>
 			</plugin>
 
