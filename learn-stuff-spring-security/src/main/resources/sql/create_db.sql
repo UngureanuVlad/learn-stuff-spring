@@ -30,7 +30,8 @@ INSERT INTO lsa_authority (id,name) VALUES (nextval('lsa_authority_id_seq'), 'US
 INSERT INTO lsa_authority (id,name) VALUES (nextval('lsa_authority_id_seq'), 'ADMIN');
 INSERT INTO lsa_authority (id,name) VALUES (nextval('lsa_authority_id_seq'), 'GUEST');
 
-INSERT INTO lsa_users (id,username, fullname, email, password, activated) VALUES (nextval('lsa_users_id_seq'),'vlad', 'Vlad Ungureanu' ,'vlad@yahoo.com', '$2a$10$WdkNALRQs5IRIZSteVmt6uqeCJlcffgKFf9gYD.Xo54WfH.dJ3Fq6', true);
+-- password is: test
+INSERT INTO lsa_users (id,username, fullname, email, password, activated) VALUES (nextval('lsa_users_id_seq'),'vlad', 'Vlad Ungureanu' ,'vlad@yahoo.com', '$2a$10$qG0y27LjXIGLVqpheqtbkOMgueqkn/SE.KO3FTW37AAmF47N4DWMW', true);
 INSERT INTO lsa_users_authority (user_id,authority_id) VALUES ((select id from lsa_users where username like 'vlad'), (select id from lsa_authority where name like 'ADMIN'));
 
 
