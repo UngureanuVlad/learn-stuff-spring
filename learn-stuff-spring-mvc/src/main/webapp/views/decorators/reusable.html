@@ -1,0 +1,35 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:fragment="headerfiles">
+<meta charset="UTF-8" />
+<link th:href="@{/style.css}" rel="stylesheet">
+<link th:href="@{/prism.css}" rel="stylesheet">
+<link href='http://fonts.googleapis.com/css?family=Actor'
+	rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Raleway:400,300'
+	rel='stylesheet' type='text/css'>
+</head>
+<body>
+	<div th:fragment="templateHeader">
+		<div class="header_wrapper">
+			<div class="header">
+				<div class="page_title">Tri Tech Software</div>
+				<div class="main_menu">
+					<a href="/learn-stuff-spring-mvc/home">Home</a> <a
+						href="/learn-stuff-spring-mvc/artist"> Artist</a> <a
+						href="/learn-stuff-spring-mvc/list_artists">List Artists</a>
+				</div>
+			</div>
+		</div>
+		<div class="info_header_wrapper"></div>
+	</div>
+	<div th:fragment="templateFooter">
+		<div class="info_footer_wrapper"></div>
+		<div class="footer_wrapper">
+			<div class="footer">
+				<div class="copyright">https://www.tritechdigital.io/</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

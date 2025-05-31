@@ -1,27 +1,37 @@
 package io.learnstuff.jms.controller;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import io.learnstuff.jms.builders.ArtefactBuilder;
 import io.learnstuff.jms.domain.Artist;
 import io.learnstuff.jms.dto.ServiceResponse;
 import io.learnstuff.jms.jms.producer.ArtistProducer;
+import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RestController;
 
+import java.util.List;
+
+@Slf4j
+@RequiredArgsConstructor
 @RestController
 public class ArtistController {
 
-  @Autowired
-  private ArtistProducer artistProducer;
+    private final ArtistProducer artistProducer;
 
-  public final static Logger logger = LoggerFactory.getLogger(ArtistController.class);
+    @PostMapping(value = "/artist", consumes = "application/json", produces = "application/json")
+    public ServiceResponse createArtist(@RequestBody Artist artist) {
+        log.info("Called createArtist() service!");
+        artistProducer.send(artist);
+        return new ServiceResponse();
+    }
 
-  @PostMapping(value = "/artist", consumes = "application/json", produces = "application/json")
-  public ServiceResponse createArtist(@RequestBody Artist artist) {
-    logger.info("Called createArtist() service!");
-    artistProducer.send(artist);
-    return new ServiceResponse();
-  }
+    @GetMapping(value = "/artist", produces = "application/json")
+    public ServiceResponse mockCreateArtist() {
+        log.info("Called mockCreateArtist() service!");
+        Artist artist = ArtefactBuilder.anArtist();
+        artistProducer.send(artist);
+        return new ServiceResponse();
+    }
 }

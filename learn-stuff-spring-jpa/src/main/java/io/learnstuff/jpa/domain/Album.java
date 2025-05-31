@@ -1,74 +1,42 @@
 package io.learnstuff.jpa.domain;
 
+import jakarta.persistence.CascadeType;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.SequenceGenerator;
+import jakarta.persistence.Table;
+import lombok.Data;
+
 import java.io.Serializable;
 import java.util.Date;
-import javax.persistence.CascadeType;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.SequenceGenerator;
-import javax.persistence.Table;
 
 /**
- * 
  * @author Vlad Ungureanu
- *
  */
-@SuppressWarnings("serial")
 @Entity
 @Table(name = "sbs_albums")
+@Data
 public class Album implements Serializable {
 
-  @Id
-  @GeneratedValue(strategy = GenerationType.IDENTITY)
-  @SequenceGenerator(name = "sbs_albums_id_seq", sequenceName = "sbs_albums_id_seq",
-      allocationSize = 1)
-  private Long id;
-  //
-  @Column(name = "title")
-  private String title = "";
-  //
-  @Column(name = "release_date")
-  private Date releaseDate = new Date();
-  //
-  @ManyToOne(cascade = CascadeType.ALL)
-  @JoinColumn(name = "id_artist")
-  private Artist artist;
-
-  public Long getId() {
-    return id;
-  }
-
-  public void setId(Long id) {
-    this.id = id;
-  }
-
-  public String getTitle() {
-    return title;
-  }
-
-  public void setTitle(String title) {
-    this.title = title;
-  }
-
-  public Date getReleaseDate() {
-    return releaseDate;
-  }
-
-  public void setReleaseDate(Date releaseDate) {
-    this.releaseDate = releaseDate;
-  }
-
-  public Artist getArtist() {
-    return artist;
-  }
-
-  public void setArtist(Artist artist) {
-    this.artist = artist;
-  }
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @SequenceGenerator(name = "sbs_albums_id_seq", sequenceName = "sbs_albums_id_seq",
+            allocationSize = 1)
+    private Long id;
+    //
+    @Column(name = "title")
+    private String title = "";
+    //
+    @Column(name = "release_date")
+    private Date releaseDate = new Date();
+    //
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "id_artist")
+    private Artist artist;
 
 }

@@ -1,30 +1,23 @@
 package io.learnstuff.jms.jms.producer;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.jms.core.JmsTemplate;
-import org.springframework.stereotype.Component;
 import io.learnstuff.jms.domain.Artist;
+import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.amqp.rabbit.core.RabbitTemplate;
+import org.springframework.stereotype.Component;
 
 /**
- * 
  * @author Vlad Ungureanu
- *
  */
+@Slf4j
 @Component
+@RequiredArgsConstructor
 public class ArtistProducer {
-  public final static Logger logger = LoggerFactory.getLogger(ArtistProducer.class);
 
-  private final JmsTemplate jmsTemplate;
+    private final RabbitTemplate rabbitTemplate;
 
-  @Autowired
-  public ArtistProducer(final JmsTemplate jmsTemplate) {
-    this.jmsTemplate = jmsTemplate;
-  }
-
-  public void send(final Artist artist) {
-    logger.info("Produced an artist message!");
-    jmsTemplate.convertAndSend("demo.topic", artist);
-  }
+    public void send(final Artist artist) {
+        log.info("Produced an artist message!");
+        rabbitTemplate.convertAndSend("artist_queue", artist);
+    }
 }

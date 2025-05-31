@@ -1,13 +1,13 @@
 package io.learnstuff.security.repository;
 
-import java.util.Optional;
+import io.learnstuff.security.domain.auth.AuthorityEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.transaction.annotation.Transactional;
-import io.learnstuff.security.domain.auth.Authority;
+import org.springframework.stereotype.Repository;
 
-@Transactional
-public interface AuthorityRepository   extends JpaRepository<Authority, Long> {
-  
-  Optional<Authority> findByName(String name);
+import java.util.Optional;
 
+@Repository
+public interface AuthorityRepository extends JpaRepository<AuthorityEntity, Long> {
+
+    Optional<AuthorityEntity> findByName(String name);
 }

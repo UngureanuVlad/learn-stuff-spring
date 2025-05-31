@@ -8,14 +8,14 @@
 	<name>Learn Stuff Spring MVC</name>
 	<description>Learn Stuff Spring MVC</description>
 	<properties>
-		<java.version>1.8</java.version>
+		<java.version>21</java.version>
 		<maven-jar-plugin.version>3.1.1</maven-jar-plugin.version>
 	</properties>
 
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>2.1.5.RELEASE</version>
+		<version>3.5.0</version>
 	</parent>
 
 	<dependencies>
@@ -28,10 +28,10 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
-
+		
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-webflux</artifactId>
+			<artifactId>spring-boot-starter-thymeleaf</artifactId>
 		</dependency>
 
 		<dependency>
@@ -55,77 +55,28 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
-
+		
 		<dependency>
-			<groupId>org.springframework</groupId>
-			<artifactId>spring-web</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework</groupId>
-			<artifactId>spring-webmvc</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework</groupId>
-			<artifactId>spring-aspects</artifactId>
-		</dependency>
-
-		<dependency>
-			<groupId>org.apache.tomcat.embed</groupId>
-			<artifactId>tomcat-embed-jasper</artifactId>
+			<groupId>jakarta.servlet</groupId>
+			<artifactId>jakarta.servlet-api</artifactId>
+			<version>6.1.0</version>
 			<scope>provided</scope>
 		</dependency>
-
+		
 		<dependency>
-			<groupId>org.apache.tomcat.embed</groupId>
-			<artifactId>tomcat-embed-jasper</artifactId>
+			<groupId>jakarta.servlet.jsp.jstl</groupId>
+			<artifactId>jakarta.servlet.jsp.jstl-api</artifactId>
+			<version>3.0.2</version>
 		</dependency>
-
+		
+		
 		<dependency>
-			<groupId>javax.servlet</groupId>
-			<artifactId>jstl</artifactId>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+			<version>1.18.36</version>
+			<scope>provided</scope>
 		</dependency>
-
-		<!-- Tiles API -->
-		<!-- http://mvnrepository.com/artifact/org.apache.tiles/tiles-api -->
-		<dependency>
-			<groupId>org.apache.tiles</groupId>
-			<artifactId>tiles-api</artifactId>
-			<version>3.0.8</version>
-		</dependency>
-
-
-		<!-- Tiles Core -->
-		<!-- http://mvnrepository.com/artifact/org.apache.tiles/tiles-core -->
-		<dependency>
-			<groupId>org.apache.tiles</groupId>
-			<artifactId>tiles-core</artifactId>
-			<version>3.0.8</version>
-		</dependency>
-
-		<!-- Tiles Servlet -->
-		<!-- http://mvnrepository.com/artifact/org.apache.tiles/tiles-servlet -->
-		<dependency>
-			<groupId>org.apache.tiles</groupId>
-			<artifactId>tiles-servlet</artifactId>
-			<version>3.0.8</version>
-		</dependency>
-
-		<!-- Tiles JSP -->
-		<!-- http://mvnrepository.com/artifact/org.apache.tiles/tiles-jsp -->
-		<dependency>
-			<groupId>org.apache.tiles</groupId>
-			<artifactId>tiles-jsp</artifactId>
-			<version>3.0.8</version>
-		</dependency>
-
-		<!-- https://mvnrepository.com/artifact/org.apache.tiles/tiles-request-api -->
-		<dependency>
-			<groupId>org.apache.tiles</groupId>
-			<artifactId>tiles-request-api</artifactId>
-			<version>1.0.6</version>
-		</dependency>
-
-	</dependencies>
+    </dependencies>
 
 	<build>
 		<finalName>learn-stuff-spring-mvc</finalName>

@@ -1,0 +1,41 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Artist Form</title>
+<!--/*/ <th:block th:insert="~{decorators/reusable.html :: headerfiles}">
+        </th:block> /*/-->
+</head>
+<body>
+<header th:insert="~{decorators/reusable.html :: templateHeader}"></header>
+	</header>
+	<div class="content_wrapper"> 
+		<div class="content">
+			<form action="#" method="POST" th:object="${artist}" th:action="@{/artist/raw}">
+				<div class="padding_container">
+					<table>
+						<tr>
+							<td><label for="name">Name:
+							</label></td>
+							<td><input type="text" th:field="*{name}"></input></td>
+						</tr>
+						<tr>
+							<td><label for="origin">Origin:
+							</label></td>
+							<td><input type="text" th:field="*{origin}"></input></td>
+						</tr>
+					</table>
+				</div>
+				<div class="button-wrapper">
+					<div class="button_holder">
+						<button type="submit" class="btn left_spacing" name="Save">Save!</button>
+						<!-- using the actual application name in the URL -->
+						<a href="/learn-stuff-spring-mvc/list_artists"
+							class="btn left_spacing">Cancel/Back</a>
+					</div>
+				</div>
+			</form>
+		</div>
+	</div>
+	<footer th:insert="~{decorators/reusable.html :: templateFooter}">
+	</footer>
+</body>
+</html>

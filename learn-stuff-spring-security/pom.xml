@@ -8,14 +8,15 @@
 	<name>Learn Stuff Spring Security</name>
 	<description>Learn Stuff Spring Security</description>
 	<properties>
-		<java.version>1.8</java.version>
+		<java.version>21</java.version>
+		<jjwt.version>0.12.6</jjwt.version>
 		<maven-jar-plugin.version>3.1.1</maven-jar-plugin.version>
 	</properties>
-
+	
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>2.1.5.RELEASE</version>
+		<version>3.5.0</version>
 	</parent>
 
 	<dependencies>
@@ -64,25 +65,22 @@
 			<groupId>org.postgresql</groupId>
 			<artifactId>postgresql</artifactId>
 		</dependency>
-
+		
 		<dependency>
 			<groupId>io.jsonwebtoken</groupId>
 			<artifactId>jjwt-api</artifactId>
-			<version>0.10.5</version>
+			<version>${jjwt.version}</version>
 		</dependency>
-
+		
 		<dependency>
 			<groupId>io.jsonwebtoken</groupId>
 			<artifactId>jjwt-impl</artifactId>
-			<version>0.10.5</version>
-			<scope>runtime</scope>
+			<version>${jjwt.version}</version>
 		</dependency>
-
 		<dependency>
 			<groupId>io.jsonwebtoken</groupId>
 			<artifactId>jjwt-jackson</artifactId>
-			<version>0.10.5</version>
-			<scope>runtime</scope>
+			<version>${jjwt.version}</version>
 		</dependency>
 
 		<dependency>
@@ -102,6 +100,12 @@
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-aspects</artifactId>
+		</dependency>
+		
+		<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+			<scope>provided</scope>
 		</dependency>
 	</dependencies>
 

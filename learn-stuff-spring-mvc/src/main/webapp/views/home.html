@@ -1,0 +1,20 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<title>Learn Stuff IO</title>
+	<!--/*/ <th:block th:insert="~{decorators/reusable.html :: headerfiles}">
+        </th:block> /*/-->
+</head>
+<body>
+<header th:insert="~{decorators/reusable.html :: templateHeader}"></header>
+	<div class="content_wrapper">
+		<div class="content">
+			<div>
+				<div class="content-holder">
+					<div class="padding_container">Welcome to Learn Stuff IO!</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<footer th:insert="~{decorators/reusable.html :: templateFooter}">
+</body>
+</html>

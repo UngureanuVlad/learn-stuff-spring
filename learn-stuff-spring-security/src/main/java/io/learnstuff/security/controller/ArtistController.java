@@ -1,20 +1,32 @@
 package io.learnstuff.security.controller;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import io.learnstuff.security.domain.DomainArtist;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import io.learnstuff.security.domain.Artist;
 
+import java.util.List;
+
+@Slf4j
 @RestController
+@RequestMapping("/admin/artist")
 public class ArtistController {
 
-  public final static Logger logger = LoggerFactory.getLogger(ArtistController.class);
+    @PostMapping
+    public DomainArtist createArtist(@RequestBody DomainArtist domainArtist) {
+        log.info("Called createArtist() service!");
+        return domainArtist;
+    }
 
-  @PostMapping(value = "/artist", consumes = "application/json", produces = "application/json")
-  public Artist createArtist(@RequestBody Artist artist) {
-    logger.info("Called createArtist() service!");
-    return artist;
-  }
+    @GetMapping
+    public List<DomainArtist> getArtists() {
+        log.info("Called getArtists() service!");
+        DomainArtist domainArtist = new DomainArtist();
+        domainArtist.setName("Artist");
+        domainArtist.setId(1L);
+        return List.of(domainArtist);
+    }
 }

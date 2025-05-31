@@ -5,8 +5,8 @@ import java.io.Serializable;
 @SuppressWarnings("serial")
 public class TechnicalException extends RuntimeException implements Serializable {
 
-  public TechnicalException(String message, Throwable cause) {
-    super(message, cause);
-  }
+    public TechnicalException(String message, Throwable cause) {
+        super(message, cause);
+    }
 
 }

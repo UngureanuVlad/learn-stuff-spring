@@ -1,24 +1,11 @@
 package io.learnstuff.rest.dto;
 
+import lombok.Data;
+
+@Data
 public class ServiceResponse {
 
-  private String message = "Operation Succesfull!";
-  private int code = 200;
-
-  public String getMessage() {
-    return message;
-  }
-
-  public void setMessage(String message) {
-    this.message = message;
-  }
-
-  public int getCode() {
-    return code;
-  }
-
-  public void setCode(int code) {
-    this.code = code;
-  }
+    private String message = "Operation Successful!";
+    private int code = 200;
 
 }

@@ -1,27 +1,32 @@
 package io.learnstuff.security.repository;
 
-import java.util.Optional;
+import io.learnstuff.security.domain.auth.UserEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
+import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
-import io.learnstuff.security.domain.auth.User;
 
-public interface UserRepository extends JpaRepository<User, Long> {
+import java.util.Optional;
 
-  Optional<User> findByUsername(String username);
+@Repository
+public interface UserRepository extends JpaRepository<UserEntity, Long> {
 
-  @Modifying
-  @Transactional
-  @Query("update User u set activated = ?1 where id = ?2")
-  int updateStatus(Boolean status, Long id);
+    Optional<UserEntity> findByEmail(String email);
 
-  boolean existsByUsername(String username);
+    @Modifying
+    @Transactional
+    @Query("UPDATE UserEntity u SET u.active = true WHERE u.id = ?1")
+    void activateUser(Long id);
 
-  boolean existsByEmail(String email);
 
-  Optional<User> findByEmail(String email);
+    @Modifying
+    @Transactional
+    @Query(value = "DELETE FROM users_authorities WHERE user_id = ?1", nativeQuery = true)
+    void deleteAuthoritiesForUserId(Long userId);
 
-  String findEmailById(Long id);
-
+    @Modifying
+    @Transactional
+    @Query(value = "UPDATE users_authorities SET authority_id = ?2 WHERE user_id = ?1", nativeQuery = true)
+    void updateAuthority(Long userId, Long authorityId);
 }

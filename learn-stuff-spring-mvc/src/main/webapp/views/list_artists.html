@@ -1,0 +1,34 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Artist List</title>
+    <!--/*/ <th:block th:insert="~{decorators/reusable.html :: headerfiles}">
+        </th:block> /*/-->
+</head>
+<body>
+<header th:insert="~{decorators/reusable.html :: templateHeader}"></header>
+<div class="content_wrapper">
+    <div class="content">
+        <div class="padding_container">
+            <ul>
+                <li th:each="artist : ${artists}" th:object="${artist}">
+                    <div class="list_items">
+                        <div class="bold_font" th:text="*{name}"/>
+                    </div>
+                    <a class="fct_btn" th:href="@{/update_artist/{id}(id=${artist.id})}">Update</a><br/>
+                    <div class="left_spacing">Albums:</div>
+                    <ul>
+                        <li th:each="album : *{albums}" th:object="${album}">
+                            <div class="editor-rez, title-width">
+                                <span th:text="*{title}"></span>
+                            </div>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+<footer th:insert="~{decorators/reusable.html :: templateFooter}">
+</footer>
+</body>
+</html>
